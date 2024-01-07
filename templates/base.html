@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html lang ="en">
+    <head>
+{% blockhead %}
+<meta charset="UTF=8">
+<link rel="stylesheet" href ="{{ url_for('static', filename='style.css') }}">
+<title>{% block title %}{% endblock title %}</title>
+{% endblock head %}
+    </head>
+
+    <body>
+        <div>
+            {% block content %}
+            {% endblock content %}
+        </div>
+        <div>
+            {% block footer %}
+            &copy; Copyright 2023 by <a href ="Termin Ismael"> - CoreFizik Fitness</a>
+            {% endblock footer %}
+        </div>
+
+    </body>
+
+</html>

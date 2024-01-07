@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title class=> CoreFizik Fitness {% block title %}{% endblock %}</title>
+</head>
+
+<body>
+    <!-- Social Icons -->
+    <div class="social-links-wrapper fixed-top bg-light" style="width: 100%; height: 50px;">
+        <div class="container d-flex justify-content-end" style="height: 100%;">
+            <div class="social-icons d-flex align-items-center">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f fa-lg"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter fa-lg"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram fa-lg"></i></a>
+            </div>
+        </div>
+    </div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-custom fixed-top">
+        <a class="navbar-brand" href="{{ url_for('index') }}">
+        </a>
+        <!-- Button to toggle the responsive navbar -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                {% include "nav-bar.html" %}
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Display error messages -->
+    <div style="padding-top: 140px; margin-top: 40px;">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message[0] }} alert-dismissible fade show" role="alert">
+                        <button type="button" class="close btn-dismiss" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>{{ message[1] }}</strong>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+            {% block content %}{% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-info fixed-bottom" style="margin-top: 200px;">
+        <div class="container text-center">
+            <div class="social-links-wrapper">
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f social-icon"></i></a>
+                    <a href="#"><i class="fab fa-twitter social-icon"></i></a>
+                    <a href="#"><i class="fab fa-instagram social-icon"></i></a>
+                </div>
+            </div>
+            <p>© 2023 CoreFizik Fitness</p>
+
+        </div>
+    </footer>
+
+</body>
+
+</html>
